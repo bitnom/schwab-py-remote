@@ -1,0 +1,61 @@
+[project]
+name = "schwab"
+version = "1.3.0"
+description = "Unofficial API wrapper for the Schwab HTTP API"
+authors = [
+    {name = "bitnom", email = "14287229+bitnom@users.noreply.github.com"},
+    {name = "Alex Golec", email = "bottomless.septic.tank@gmail.com"},
+]
+dependencies = [
+    "authlib",
+    "autopep8",
+    "flask",
+    "httpx",
+    "multiprocess",
+    "prompt_toolkit",
+    "psutil",
+    "python-dateutil",
+    "urllib3",
+    "websockets",
+]
+requires-python = ">=3.10"
+readme = "README.md"
+license = {text = "MIT"}
+keywords = ["finance trading equities bonds options research"]
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Office/Business :: Financial :: Investment",
+]
+
+[project.urls]
+Homepage = "https://github.com/alexgolec/schwab-py"
+Documentation = "https://schwab-py.readthedocs.io/en/latest/"
+Source = "https://github.com/alexgolec/schwab-py"
+Tracker = "https://github.com/alexgolec/schwab-py/issues"
+
+[project.optional-dependencies]
+dev = [
+    "callee",
+    "colorama",
+    "coverage",
+    "nose",
+    "pytest",
+    "pytz",
+    "setuptools",
+    "sphinx_rtd_theme",
+    "twine",
+    "wheel",
+]
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
+[tool.pdm]
+distribution = true
