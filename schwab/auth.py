@@ -198,7 +198,7 @@ def __run_client_from_login_flow_server(
 
         old_stdout = sys.stdout
         sys.stdout = devnull
-        app.run(port=callback_port, ssl_context='adhoc')
+        app.run(host='0.0.0.0', port=callback_port, ssl_context='adhoc')
         sys.stdout = old_stdout
 
 
@@ -291,7 +291,7 @@ def client_from_login_flow(api_key, app_secret, callback_url, token_path,
     # Start the server
     parsed = urllib.parse.urlparse(callback_url)
 
-    if parsed.hostname != '127.0.0.1':
+    if parsed.hostname != 'brokerhedge.com':
         # TODO: document this error
         raise ValueError(
                 ('Disallowed hostname {}. client_from_login_flow only allows '+
@@ -342,7 +342,7 @@ def client_from_login_flow(api_key, app_secret, callback_url, token_path,
                             category=urllib3.exceptions.InsecureRequestWarning)
 
                     resp = httpx.get(
-                            'https://127.0.0.1:{}/schwab-py-internal/status'.format(
+                            'https://0.0.0.0:{}/schwab-py-internal/status'.format(
                                 callback_port), verify=False)
                 break
             except httpx.ConnectError as e:
